@@ -4,10 +4,42 @@
     }
 }) }}
 
+    <div class="row">
+        <div class="col-lg-4 offset-2">
 
-    {{ form_widget(form) }}
+            {# form_label(form.name) : affiche le label du champ "name" du tableau "form" #}
+            {{ form_label(form.name) }}
+            
+            {# form_widget(form.name) : affiche le <input>> du champ "name" du tableau "form" #}
+            {{ form_widget(form.name) }}
+            
+            {# form_help(form.name) : affiche le helper <small>...</small> du champ "name" du tableau "form" #}
+            {{ form_help(form.name) }}
+            
+            {# form_errors(form.name) : affiche les erreurs du champ "name" du tableau "form" #}
+            {{ form_errors(form.name) }}
+
+        </div>
+        <div class="col-lg-4">
+            
+            {{ form_label(form.myCustomField) }}
+            {{ form_widget(form.myCustomField) }}
+            {{ form_help(form.myCustomField) }}
+            {{ form_errors(form.myCustomField) }}
+
+        </div>
+    </div>
+
+    {# form_widget(form) : affiche tous les champs du formulaire "form" #}
+    {# {{ form_widget(form) }} #}
+
+    {# form_rest(form) : affiche tous les champs non dépilé du tableau "form" #}
+    {# {{ form_rest(form) }} #}
+
     <button class="btn">{{ button_label|default('Save') }}</button>
 
 
-
-{{ form_end(form) }}
+{# render_rest : spécifie a symfony de ne pas afficher les champ non depilé du tableau "form" #}
+{{ form_end(form, {
+    render_rest: false
+}) }}
