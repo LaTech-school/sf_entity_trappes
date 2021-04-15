@@ -32,6 +32,15 @@ class Task
      */
     private $completeAt;
 
+
+    // Definir des valeurs par défaut
+    public function __construct()
+    {
+        // Definir une valeur par defaut pour la date de creation de la tache
+        $this->createAt = new \DateTime();
+    }
+
+
     public function getId(): ?int
     {
         return $this->id;

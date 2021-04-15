@@ -4,6 +4,8 @@ namespace App\Form;
 
 use App\Entity\Task;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -70,10 +72,18 @@ class TaskType extends AbstractType
             ])
 
             // Create At
-            ->add('createAt')
+            // ->add('createAt')
 
             // Complete At
-            ->add('completeAt')
+            // ->add('completeAt')
+
+
+            // Creation d'un champ non référencé dans l'entité
+            ->add('myCustomField', TextareaType::class, [
+
+                // Le champ n'est pas "mapé" dans l'entité
+                'mapped' => false
+            ])
 
         ;
     }
