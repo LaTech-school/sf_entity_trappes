@@ -25,7 +25,7 @@ class Task
     /**
      * @ORM\Column(type="datetime")
      */
-    private $createDate;
+    private $createAt;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
@@ -49,14 +49,14 @@ class Task
         return $this;
     }
 
-    public function getCreateDate(): ?\DateTimeInterface
+    public function getCreateAt(): ?\DateTimeInterface
     {
-        return $this->createDate;
+        return $this->createAt;
     }
 
-    public function setCreateDate(\DateTimeInterface $createDate): self
+    public function setCreateAt(\DateTimeInterface $createAt): self
     {
-        $this->createDate = $createDate;
+        $this->createAt = $createAt;
 
         return $this;
     }
@@ -72,4 +72,5 @@ class Task
 
         return $this;
     }
+
 }
